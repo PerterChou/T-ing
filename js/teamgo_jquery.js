@@ -171,7 +171,6 @@ $(document).ready(function(){
 					//newCard.text(n['projectName']);
 					
 					$("#card").append(newCard);
-					console.log(n['projectName']);
 				});
 				$("#web-content").show();
 			}
@@ -189,7 +188,7 @@ $(document).ready(function(){
 			},10000);
 	}
 	
-	function refleshCheck(checkbox) {
+	$("#reflesh").click(function(){
 		if(document.getElementById("reflesh").checked == true){
 			clearInterval(myVar);
 		}else{
@@ -197,8 +196,7 @@ $(document).ready(function(){
 				showProjects();
 			},10000);
 		}
-		// body...
-	}
+	});
 });
 
 
