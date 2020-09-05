@@ -50,6 +50,11 @@ div{
     -webkit-border-radius: 4px;
 }
 
+@font-face {
+	font-family:'yuki';
+	src: url('../font/font1.ttf') format('truetype');
+}
+
 .navbar{
 	width: 76px;
 	height: 100vh;

@@ -82,6 +82,7 @@ function showAllSearch(){
 
 /*将隐藏的web-content节点显示出来*/
 
+/*
 function showProjects(){
 		addProject();
 		document.getElementById("web-content").style.display = "block";
@@ -106,6 +107,7 @@ function refleshCheck(checkbox) {
 	}
 	// body...
 }
+*/
 function test(){
 	document.getElementById("web-content").style.display = "none";
 }

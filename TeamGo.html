@@ -52,7 +52,7 @@
 			<section class="navbar-apps">
 				<div id="navbar-apps">
 					<ul class="navbar-detail-apps">
-						<li class="navbar-detail-app" onclick="showProjects()">
+						<li class="navbar-detail-app" data-app="project">
 							<span class="next-badge navbar-detail-badge">
 								<span class="navbar-detail-app-icon" style="display: inline-block;">
 									<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/project.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;"></span>
@@ -281,7 +281,7 @@
 			</div>
 		</div>
 		<div id="saysomething" style="display: none;">行かないで...</div>
-		<div id="hello" style="display:none;width:250;height:50;z-index:5200;border-radius: 5px;"></div>
+		<div id="hello" style="display:none;width:250;height:50;z-index:5200;border-radius: 5px;font-family:yuki;"></div>
 		
 		<div class="next-overlay-wrapper aBoard" data-something="avator">
 			<div class="next-overlay-inner" style="top: 70vh;">
@@ -461,7 +461,7 @@
 				</footer>
 			</div>
 		</div>
-		<div class="dropdown" id="member-dropdown" data-something="member" style="display: none;">
+		<div class="dropdown aBoard" id="member-dropdown" data-something="member" style="display: none;">
 			<div class="dropdown-container member-menu member-menu-component">
 				<div class="member-menu-component member-menu-body">
 					<div class="search-input-wrap">
