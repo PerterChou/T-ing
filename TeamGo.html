@@ -5,46 +5,25 @@
 		<title>TeamGo -We made it together</title>
 		<link rel="icon" href="img/T.png" type="image/x-icon">
 		<link rel="stylesheet" type="text/css" href="css/teamgo.css" />
+		<link rel="stylesheet" type="text/css" href="css/project_view.css" />
+		<link rel="stylesheet" type="text/css" href="css/modal-board.css" />
+		<link rel="stylesheet" type="text/css" href="css/schedule-board.css" />
 		<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css" />
 		<script src="js/jquery-3.5.1.min.js"></script>
 		<script src="js/jquery.datetimepicker.full.js"></script>
+		<script src="plugins/tinymce/tinymce.min.js"></script>
+		<!--<script src="https://cdn.bootcdn.net/ajax/libs/tinymce/5.4.2/tinymce.min.js"></script>-->
 		<script src="js/teamgo_jquery.js"></script>
+
 		<!--
 	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 -->
-		<script>
-			$(document).ready(function(){
-			var logic = function( currentDateTime ){
-				/*
-				if (currentDateTime && currentDateTime.getDay() == 6){
-					this.setOptions({
-						minTime:'11:00'
-					});
-				}else
-					this.setOptions({
-						minTime:'8:00'
-					});
-					*/
-			};
-			$('.datetime-set').datetimepicker({
-				onChangeDateTime:logic,
-				onShow:logic,
-				step:10
-			});
-			$.datetimepicker.setLocale('ch');
-			
-			
-		});
-		
-
-		
-	</script>
 	</head>
 	<body>
 		<header class="navbar">
 			<section class="teamgo-logo">
 				<div id="teamgo-logo">
-					<a href="TeamGo.html">
+					<a href="./">
 						<div class="navbardetail-logo" style="background-image: url(img/T.png);"></div>
 					</a>
 				</div>
@@ -76,8 +55,7 @@
 					<ul class="navbar-detail-tools">
 						<li class="navbar-detail-tool">
 							<div class="detail-creater">
-								<span class="mybutton" data-something="creator" style="width: 100%; height: 100%; display: inline-block; background-image: url(img/new.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;"
-								></span>
+								<span class="mybutton" data-something="creator" style="width: 100%; height: 100%; display: inline-block; background-image: url(img/new.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;"></span>
 							</div>
 						</li>
 						<li class="navbar-detail-tool with-background">
@@ -101,6 +79,7 @@
 
 		</header>
 		<div id="web-content">
+			
 			<div class="teamgo-view teamgo-wrap clearfix is-projects">
 				<div class="workspace-section">
 					<div class="tab-content">
@@ -128,111 +107,294 @@
 					</div>
 				</div>
 			</div>
-		</div>
-
-		<div class="next-overlay-wrapper aBoard" data-something="creator">
-
-			<div class="next-overlay-inner">
-				<div id="navbar-detail-create-menu" class="navbar-detail-create-menu">
-					<ul class="menu">
-						<li class="menu-item menu-item-item" data-modal="modal1">
-							<span class="next-badge navbar-detail-badge">
-								<span class="navbar-detail-app-icon" style="display: inline-block;">
-									<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/newproject.png); background-position: center center; background-repeat: no-repeat; background-size: 80%;"></span>
-								</span>
-							</span>
-							<span class="menu-item-content">项目</span>
-						</li>
-						<li class="separator"></li>
-						<li class="menu-item menu-item-item" data-modal="modal2">
-							<span class="next-badge navbar-detail-badge">
-								<span class="navbar-detail-app-icon" style="display: inline-block;">
-									<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/task.png); background-position: center center; background-repeat: no-repeat; background-size: 80%;"></span>
-								</span>
-							</span>
-							<span class="menu-item-content">任务</span>
-						</li>
-						<li class="menu-item menu-item-item" data-modal="modal3">
-							<span class="next-badge navbar-detail-badge">
-								<span class="navbar-detail-app-icon" style="display: inline-block;">
-									<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/schedule.png); background-position: center center; background-repeat: no-repeat; background-size: 80%;"></span>
-								</span>
-							</span>
-							<span class="menu-item-content">日程</span>
-						</li>
-						<li class="menu-item menu-item-item" data-modal="modal4">
-							<span class="next-badge navbar-detail-badge">
-								<span class="navbar-detail-app-icon" style="display: inline-block;">
-									<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/other.png); background-position: center center; background-repeat: no-repeat; background-size: 80%;"></span>
-								</span>
-							</span>
-							<span class="menu-item-content">其他</span>
-						</li>
-					</ul>
+			
+			<!--
+			<div class="project-view">
+				<nav class="project-nav">
+					<div class="project-nav-wrap">
+						<div class="project-nav-first">
+							<div class="first-nav">
+								<button class="project-selector" data-something="selector">
+									<span class="button-name">选择项目</span>
+								</button>
+							</div>
+						</div>
+						<div class="project-nav-second">
+							<div class="second-nav">
+								<div class="tabs-bar-apps">
+									<div class="tabs-bar-app active" data-role="tasks">
+										<span class="tabs-bar-item-title">任务</span>
+									</div>
+									<div class="tabs-bar-app" data-role="schedules">
+										<span class="tabs-bar-item-title">日程</span>
+									</div>
+									<div class="tabs-bar-app" data-role="wechat">
+										<span class="tabs-bar-item-title">其他</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="project-nav-third"></div>
+				</nav>
+				<div class="project-dropdown">
+					<div class="project-dropdown-container">
+						<div class="project-search">
+							<div class="search-input-wrap">
+								<div class="search-wrap">
+									<input class="search-input" placeholder="搜索项目">
+								</div>
+							</div>
+						</div>
+						<ul class="project-select-view">
+						</ul>
+					</div>
 				</div>
-			</div>
-		</div>
-		<div class="next-overlay-wrapper searcher">
-			<div class="next-overlay-wrapper-board">
-			</div>
-			<div class="next-dialog next-overlay-inner">
-				<div class="next-loading">
-					<div class="next-loading-wrap">
-						<div class="next-dialog-body">
-							<div class="searcher-lite searcher-lite-large">
-								<section class="searcher-lite-header">
-									<span class="next-input next-medium input">
-										<span class="next-input-inner">
-											<span class="next-badge navbar-detail-badge" style="margin-left: 10px;vertical-align: middle;">
-												<span class="navbar-detail-app-icon" style="display: inline-block;">
-													<span style=" width: 100%; height: 100%; display: inline-block; background-image: url(img/searcher.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;"></span>
-												</span>
-											</span>
-										</span>
-										<input placeholder="搜索.." height="100%" autocomplete="off" value onfocus="changeBorder1()" onblur="changeBorder2()">
-									</span>
-									<button name="close" type="button" class="closeBoardBtn" id="closeD" onclick="closeSearchBoard()">
-										X
-									</button>
-								</section>
-								<section>
-									<div class="searcher-content">
-										<div class="searcher-component">
-											<div class="tabs-bar">
-												<div class="tabs-bar-container">
-													<div class="tabs-bar-scroll">
-														<ul class="tabs-bar-items">
-															<li class="tabs-bar-item">
-																<div class="tabs-bar-item-inner active" onclick="showAllSearch()" id="0">
-																	<span class="tabs-bar-item-title">全部</span>
+				<!--
+				<div class="project-board">
+					<div class="project-board-view">
+						<div class="project-board-wrap">
+							<div class="content">
+								<div class="project-board-body">
+									<div class="body-wrap">
+										<div class="task-list-view" data-task="todo">
+											<div class="list-content">
+												<div class="status-name">
+													<div class="status-name-wrap">
+														<div class="title-list">
+															<span class="title-name">待处理</span>
+															<span class="title-num">0</span>
+														</div>
+													</div>
+												</div>
+												<div class="task-list-body">
+													<div class="task-list-body-list">
+														<div class="task-list-body-card">
+															<div class="task-card">
+																<div class="task-card-body">
+																	<div class="select-box"></div>
+																	<div class="task-content">
+																		<span class="task-content-text">喝茶</span>
+																		<div class="task-info">今天 09:00-周三</div>
+																	</div>								
 																</div>
-															</li>
-															<li class="tabs-bar-item">
-																<div class="tabs-bar-item-inner" id="1">
-																	<span class="tabs-bar-item-title">项目</span>
-																</div>
-															</li>
-															<li class="tabs-bar-item">
-																<div class="tabs-bar-item-inner" id="2">
-																	<span class="tabs-bar-item-title">任务</span>
-																</div>
-															</li>
-															<li class="tabs-bar-item">
-																<div class="tabs-bar-item-inner" id="3">
-																	<span class="tabs-bar-item-title">日程</span>
-																</div>
-															</li>
-															<li class="tabs-bar-item">
-																<div class="tabs-bar-item-inner" id="4">
-																	<span class="tabs-bar-item-title">成员</span>
-																</div>
-															</li>
-														</ul>
+															</div>
+															
+														</div>
 													</div>
 												</div>
 											</div>
-											<div class="tabs-content">
-												<!--
+										</div>
+										<div class="task-list-view" data-task="doing">
+											<div class="list-content">
+												<div class="status-name">
+													<div class="status-name-wrap">
+														<div class="title-list">
+															<span class="title-name">处理中</span>
+															<span class="title-num">0</span>
+														</div>
+													</div>
+												</div>
+												<div class="task-list-body">
+													<div class="task-list-body-list">
+														<div class="task-list-body-card">
+															<div class="task-card">
+																<div class="task-card-body">
+																	<div class="select-box"></div>
+																	<div class="task-content">
+																		<span class="task-content-text">喝茶</span>
+																	</div>								
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="task-list-view" data-task="checking">
+											<div class="list-content">
+												<div class="status-name">
+													<div class="status-name-wrap">
+														<div class="title-list">
+															<span class="title-name">审核中</span>
+															<span class="title-num">0</span>
+														</div>
+													</div>
+												</div>
+												<div class="task-list-body">
+													<div class="task-list-body-list">
+														<div class="task-list-body-card">
+															<div class="task-card">
+																<div class="task-card-body">
+																	<div class="select-box"></div>
+																	<div class="task-content">
+																		<span class="task-content-text">喝茶</span>
+																	</div>								
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="task-list-view" data-task="done">
+											<div class="list-content">
+												<div class="status-name">
+													<div class="status-name-wrap">
+														<div class="title-list">
+															<span class="title-name">已完成</span>
+															<span class="title-num">0</span>
+														</div>
+													</div>
+												</div>
+												<div class="task-list-body">
+													<div class="task-list-body-list">
+														<div class="task-list-body-card">
+															<div class="task-card">
+																<div class="task-card-body">
+																	<div class="select-box"></div>
+																	<div class="task-content">
+																		<span class="task-content-text">喝茶</span>
+																	</div>								
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				-->
+				<!--
+				<div class="schedule-board">
+					<div class="schedule-box">
+						<ul class="schedule-time">
+							<li class="current"><label schedule-date="2013">9月20日</label></li>
+						</ul>
+						<ul class="schedule-list">
+							<div class="schedule-list-item">
+								<h3 id="2013">9月20日</h3>
+								<li schedule-id>
+									<span class="during-time">00:00~00:00</span>
+									<p><span class="schedule-name">暂无日程</span></p>
+								</li>
+							</div>
+						</ul>
+					</div>
+				</div>
+				-->
+			</div>
+			
+		</div>
+
+		<div id="addIn">
+			<div class="next-overlay-wrapper aBoard" data-something="creator">
+
+				<div class="next-overlay-inner">
+					<div id="navbar-detail-create-menu" class="navbar-detail-create-menu">
+						<ul class="menu">
+							<li class="menu-item menu-item-item" data-modal="modal1">
+								<span class="next-badge navbar-detail-badge">
+									<span class="navbar-detail-app-icon" style="display: inline-block;">
+										<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/newproject.png); background-position: center center; background-repeat: no-repeat; background-size: 80%;"></span>
+									</span>
+								</span>
+								<span class="menu-item-content">项目</span>
+							</li>
+							<li class="separator"></li>
+							<li class="menu-item menu-item-item" data-modal="modal2">
+								<span class="next-badge navbar-detail-badge">
+									<span class="navbar-detail-app-icon" style="display: inline-block;">
+										<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/task.png); background-position: center center; background-repeat: no-repeat; background-size: 80%;"></span>
+									</span>
+								</span>
+								<span class="menu-item-content">任务</span>
+							</li>
+							<li class="menu-item menu-item-item" data-modal="modal3">
+								<span class="next-badge navbar-detail-badge">
+									<span class="navbar-detail-app-icon" style="display: inline-block;">
+										<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/schedule.png); background-position: center center; background-repeat: no-repeat; background-size: 80%;"></span>
+									</span>
+								</span>
+								<span class="menu-item-content">日程</span>
+							</li>
+							<li class="menu-item menu-item-item" data-modal="modal4">
+								<span class="next-badge navbar-detail-badge">
+									<span class="navbar-detail-app-icon" style="display: inline-block;">
+										<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/other.png); background-position: center center; background-repeat: no-repeat; background-size: 80%;"></span>
+									</span>
+								</span>
+								<span class="menu-item-content">其他</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="next-overlay-wrapper searcher">
+				<div class="next-overlay-wrapper-board">
+				</div>
+				<div class="next-dialog next-overlay-inner">
+					<div class="next-loading">
+						<div class="next-loading-wrap">
+							<div class="next-dialog-body">
+								<div class="searcher-lite searcher-lite-large">
+									<section class="searcher-lite-header">
+										<span class="next-input next-medium input">
+											<span class="next-input-inner">
+												<span class="next-badge navbar-detail-badge" style="margin-left: 10px;vertical-align: middle;">
+													<span class="navbar-detail-app-icon" style="display: inline-block;">
+														<span style=" width: 100%; height: 100%; display: inline-block; background-image: url(img/searcher.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;"></span>
+													</span>
+												</span>
+											</span>
+											<input placeholder="搜索.." height="100%" autocomplete="off" value onfocus="changeBorder1()" onblur="changeBorder2()">
+										</span>
+										<button name="close" type="button" class="closeBoardBtn" id="closeD" onclick="closeSearchBoard()">
+											X
+										</button>
+									</section>
+									<section>
+										<div class="searcher-content">
+											<div class="searcher-component">
+												<div class="tabs-bar">
+													<div class="tabs-bar-container">
+														<div class="tabs-bar-scroll">
+															<ul class="tabs-bar-items">
+																<li class="tabs-bar-item">
+																	<div class="tabs-bar-item-inner active" onclick="showAllSearch()" id="0">
+																		<span class="tabs-bar-item-title">全部</span>
+																	</div>
+																</li>
+																<li class="tabs-bar-item">
+																	<div class="tabs-bar-item-inner" id="1">
+																		<span class="tabs-bar-item-title">项目</span>
+																	</div>
+																</li>
+																<li class="tabs-bar-item">
+																	<div class="tabs-bar-item-inner" id="2">
+																		<span class="tabs-bar-item-title">任务</span>
+																	</div>
+																</li>
+																<li class="tabs-bar-item">
+																	<div class="tabs-bar-item-inner" id="3">
+																		<span class="tabs-bar-item-title">日程</span>
+																	</div>
+																</li>
+																<li class="tabs-bar-item">
+																	<div class="tabs-bar-item-inner" id="4">
+																		<span class="tabs-bar-item-title">成员</span>
+																	</div>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+												<div class="tabs-content">
+													<!--
 											
 											<div class="tabs-tabpane">
 												<div class="content">
@@ -260,239 +422,66 @@
 												</div>
 											</div>
 										-->
-												<div class="tabs-tabpane">
-													<div class="content">
-														<div class="search-result-wrap">
+													<div class="tabs-tabpane">
+														<div class="content">
+															<div class="search-result-wrap">
 
+
+															</div>
 
 														</div>
-
 													</div>
+
 												</div>
-
 											</div>
 										</div>
-									</div>
-								</section>
+									</section>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div id="saysomething" style="display: none;">行かないで...</div>
-		<div id="hello" style="display:none;width:250;height:50;z-index:5200;border-radius: 5px;font-family:yuki;"></div>
-		
-		<div class="next-overlay-wrapper aBoard" data-something="avator">
-			<div class="next-overlay-inner" style="top: 70vh;">
-				<div class="avator-menu">
-					<ul class="avator-menu-item">
-						
-						<li class="avator-menu-item-item">
-							<div class="avator-menu-item-item-inner">
-								<span class="avator-menu-item-item-text">账号设置</span>
-							</div>
-						</li>
-						<li class="avator-menu-item-item">
-							<div class="avator-menu-item-item-inner">
-								<span class="avator-menu-item-item-text">暂时</span>
-							</div>
-						</li>
-					</ul>
-					<ul class="avator-menu-item">
-						<li class="separator"></li>
-						<li class="avator-menu-item-item Leave" id="leave" >
-							<div class="avator-menu-item-item-inner">
-								<span class="avator-menu-item-item-text">退出登录</span>
-							</div>
-							<span style="display: block;width: 20px;height: 20px;margin-left: 100px;"><svg t="1599236773408" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2384" width="20" height="20"><path d="M702.94996 958.89419c-8.375761 0-16.751522-3.196809-23.14514-9.590426L265.159102 534.658046c-12.787234-12.777001-12.787234-33.513278 0-46.289256L679.80482 73.722048c12.787234-12.787234 33.502022-12.787234 46.289256 0 12.787234 12.777001 12.787234 33.513278 0 46.289256L334.593498 511.512906l391.501602 391.501602c12.787234 12.777001 12.787234 33.513278 0 46.289256C719.701482 955.697381 711.325721 958.89419 702.94996 958.89419z" p-id="2385"></path></svg></span>
-							
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="modal fade in" data-modal="modal2">
-			<div class="modal-board fade in"></div>
-			<div class="task-creator-view creator-view modal-dialog">
-				<header class="creator-header">
-					<h4 class="creator-title">新建任务</h4>
-					<div class="closeBoardBtn" data-modal="modal2"><svg t="1598885336572" class="icon" viewBox="0 0 1024 1024"
-						 version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2684" width="20" height="20">
-							<path d="M566.97558594 521.09667969L856.8828125 231.18945312c14.63378906-14.63378906 14.63378906-38.75976563 0-53.39355468l-1.58203125-1.58203125c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469 0L512 466.51660156 222.09277344 176.21386719c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469 0l-1.58203125 1.58203125c-15.02929688 14.63378906-15.02929688 38.75976563 0 53.39355469l289.90722656 289.90722656L167.1171875 811.00390625c-14.63378906 14.63378906-14.63378906 38.75976563 0 53.39355469l1.58203125 1.58203125c14.63378906 14.63378906 38.75976563 14.63378906 53.39355469 0L512 576.07226563 801.90722656 865.97949219c14.63378906 14.63378906 38.75976563 14.63378906 53.39355469 0l1.58203125-1.58203125c14.63378906-14.63378906 14.63378906-38.75976563 0-53.39355469L566.97558594 521.09667969z"
-							 fill="#363F4D" p-id="2685"></path>
-						</svg></div>
-				</header>
-				<section class="creator-body">
-					<div class="creator-block task-creator-input">
-						<div class="editor" contenteditable="true" spellcheck="false" placeholder="输入任务标题" id="task-editor"></div>
-					</div>
-					<div class="basic-attrs-wrap">
-						<div class="basic-attrs-view">
-							<div class="task-executor">
-								<div class="task-executor-content">
-									<div class="task-executor circle">
-										<div class="executor selector" id='memberselect' >
-											<span class="executor-icon" style="background-image: url(img/executor.png);"></span>
-											<div class="executor-name"><span class="mybutton" data-something="member">执行者</span></div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="task-date-range">
-								<span class="task-date-range-icon icon"><svg t="1598945732379" class="icon" viewBox="0 0 1024 1024" version="1.1"
-									 xmlns="http://www.w3.org/2000/svg" p-id="3418" width="200" height="200">
-										<path d="M896 345V233a8 8 0 0 0-8-8H738v45c0 17.673-14.327 32-32 32-17.673 0-32-14.327-32-32v-45H350v45c0 17.673-14.327 32-32 32-17.673 0-32-14.327-32-32v-45H136a8 8 0 0 0-8 8v112h768z m0 64H128v479a8 8 0 0 0 8 8h752a8 8 0 0 0 8-8V409zM738 161h190c17.673 0 32 14.327 32 32v735c0 17.673-14.327 32-32 32H96c-17.673 0-32-14.327-32-32V193c0-17.673 14.327-32 32-32h190V96c0-17.673 14.327-32 32-32 17.673 0 32 14.327 32 32v65h324V96c0-17.673 14.327-32 32-32 17.673 0 32 14.327 32 32v65zM289 473h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m194-256h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m194-256h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z"
-										 p-id="3419"></path>
-									</svg></span>
-								<div class="task-date-wrap">
-									<div class="task-date-start">
-										<div class="date-wrap">
-											<div class="date-text">开始时间</div>
-											<input class="datetime-set" id="startDate" type="text" />
+			<div id="saysomething" style="display: none;">行かないで...</div>
+			<div id="hello" style="display:none;width:250;height:50;z-index:5200;border-radius: 5px;font-family:yuki;"></div>
 
-										</div>
-									</div>
+			<div class="next-overlay-wrapper aBoard" data-something="avator">
+				<div class="next-overlay-inner" style="top: 70vh;">
+					<div class="avator-menu">
+						<ul class="avator-menu-item">
 
-									<div class="task-date-end">
-										<div class="date-wrap">
-											<div class="date-text">截止时间</div>
-											<input class="datetime-set" id="endDate" type="text" />
-										</div>
-									</div>
+							<li class="avator-menu-item-item">
+								<div class="avator-menu-item-item-inner">
+									<span class="avator-menu-item-item-text">账号设置</span>
 								</div>
-							</div>
-						</div>
-					</div>
-					<div class="task-location-wrap">
-						<div class="stage-selector-wrap">
-							<div class="task-location-handler selector">
-								<div class="task-location-logo" style="background-image: url(img/nullproject.png);"></div>
-								<div class="task-location-text"><span class="mybutton" data-something="project">项目</span></div>
-							</div>
-						</div>
-					</div>
-					<div class="creator-involve">
-						<div class="member-involve">
-							<div class="member-involve-header">
-								<span>参与者:</span>
-								<span style=""></span>
-							</div>
-							<ul class="member-involve-list">
-								<div><button class="mybutton add-handler" data-something="involver">+</button></div>
-							</ul>
-						</div>
-					</div>
-				</section>
-				<footer class="creator-footer">
-					<div class="btn-wrap">
-						<button class="btn" onclick="test()" disabled="disabled" id="task-btn">创建</button>
-					</div>
-				</footer>
-			</div>
-		</div>
-		<div class="modal fade in" data-modal="modal3">
-			<div class="modal-board fade in"></div>
-			<div class="task-creator-view creator-view modal-dialog">
-				<header class="creator-header">
-					<h4 class="creator-title">新建日程</h4>
-					<div data-modal="modal3" class="closeBoardBtn"><svg t="1598885336572" class="icon" viewBox="0 0 1024 1024"
-						 version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2684" width="20" height="20">
-							<path d="M566.97558594 521.09667969L856.8828125 231.18945312c14.63378906-14.63378906 14.63378906-38.75976563 0-53.39355468l-1.58203125-1.58203125c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469 0L512 466.51660156 222.09277344 176.21386719c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469 0l-1.58203125 1.58203125c-15.02929688 14.63378906-15.02929688 38.75976563 0 53.39355469l289.90722656 289.90722656L167.1171875 811.00390625c-14.63378906 14.63378906-14.63378906 38.75976563 0 53.39355469l1.58203125 1.58203125c14.63378906 14.63378906 38.75976563 14.63378906 53.39355469 0L512 576.07226563 801.90722656 865.97949219c14.63378906 14.63378906 38.75976563 14.63378906 53.39355469 0l1.58203125-1.58203125c14.63378906-14.63378906 14.63378906-38.75976563 0-53.39355469L566.97558594 521.09667969z"
-							 fill="#363F4D" p-id="2685"></path>
-						</svg></div>
-				</header>
-				<section class="creator-body">
-					<div class="creator-block task-creator-input">
-						<div class="editor" contenteditable="true" spellcheck="false" placeholder="输入日程标题" id="task-editor"></div>
-					</div>
-					<div class="basic-attrs-wrap">
-						<div class="basic-attrs-view">
-							
-							<div class="task-date-range">
-								<span class="task-date-range-icon icon"><svg t="1598945732379" class="icon" viewBox="0 0 1024 1024" version="1.1"
-									 xmlns="http://www.w3.org/2000/svg" p-id="3418" width="200" height="200">
-										<path d="M896 345V233a8 8 0 0 0-8-8H738v45c0 17.673-14.327 32-32 32-17.673 0-32-14.327-32-32v-45H350v45c0 17.673-14.327 32-32 32-17.673 0-32-14.327-32-32v-45H136a8 8 0 0 0-8 8v112h768z m0 64H128v479a8 8 0 0 0 8 8h752a8 8 0 0 0 8-8V409zM738 161h190c17.673 0 32 14.327 32 32v735c0 17.673-14.327 32-32 32H96c-17.673 0-32-14.327-32-32V193c0-17.673 14.327-32 32-32h190V96c0-17.673 14.327-32 32-32 17.673 0 32 14.327 32 32v65h324V96c0-17.673 14.327-32 32-32 17.673 0 32 14.327 32 32v65zM289 473h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m194-256h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m194-256h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z"
-										 p-id="3419"></path>
+							</li>
+							<li class="avator-menu-item-item">
+								<div class="avator-menu-item-item-inner">
+									<span class="avator-menu-item-item-text">暂时</span>
+								</div>
+							</li>
+						</ul>
+						<ul class="avator-menu-item">
+							<li class="separator"></li>
+							<li class="avator-menu-item-item Leave" id="leave">
+								<div class="avator-menu-item-item-inner">
+									<span class="avator-menu-item-item-text">退出登录</span>
+								</div>
+								<span style="display: block;width: 20px;height: 20px;margin-left: 100px;"><svg t="1599236773408" class="icon"
+									 viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2384" width="20" height="20">
+										<path d="M702.94996 958.89419c-8.375761 0-16.751522-3.196809-23.14514-9.590426L265.159102 534.658046c-12.787234-12.777001-12.787234-33.513278 0-46.289256L679.80482 73.722048c12.787234-12.787234 33.502022-12.787234 46.289256 0 12.787234 12.777001 12.787234 33.513278 0 46.289256L334.593498 511.512906l391.501602 391.501602c12.787234 12.777001 12.787234 33.513278 0 46.289256C719.701482 955.697381 711.325721 958.89419 702.94996 958.89419z"
+										 p-id="2385"></path>
 									</svg></span>
-								<div class="task-date-wrap">
-									<div class="task-date-start">
-										<div class="date-wrap">
-											<div class="date-text">开始时间</div>
-											<input class="datetime-set" id="startDate" type="text" />
-		
-										</div>
-									</div>
-		
-									<div class="task-date-end">
-										<div class="date-wrap">
-											<div class="date-text">截止时间</div>
-											<input class="datetime-set" id="endDate" type="text" />
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="task-location-wrap">
-						<div class="stage-selector-wrap">
-							<div class="task-location-handler selector">
-								<div class="task-location-logo" style="background-image: url(img/nullproject.png);"></div>
-								<div class="task-location-text"><span class="mybutton" data-something="project">项目</span></div>
-							</div>
-						</div>
-					</div>
-					<div class="creator-involve">
-						<div class="member-involve">
-							<div class="member-involve-header">
-								<span>参与者:</span>
-								<span style=""></span>
-							</div>
-							<ul class="member-involve-list">
-								<div><button class="mybutton add-handler" data-something="involver">+</button></div>
-							</ul>
-						</div>
-					</div>
-				</section>
-				<footer class="creator-footer">
-					<div class="btn-wrap">
-						<button class="btn" onclick="test()" disabled="disabled" id="task-btn">创建</button>
-					</div>
-				</footer>
-			</div>
-		</div>
-		<div class="dropdown aBoard" id="member-dropdown" data-something="member" style="display: none;">
-			<div class="dropdown-container member-menu member-menu-component">
-				<div class="member-menu-component member-menu-body">
-					<div class="search-input-wrap">
-						<div class="search-wrap">
-							<input class="search-input" placeholder="搜索" />
-						</div>
-					</div>
-					<div class="member-section">
-						<ul class="member-list">
-							<li class="select-group">
-								<div class="option-group-label">项目组1</div>
-								<ul>
-									<li class="member-list-item">
-										<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
-										<div class="item-content-wrap">
-											<div class="item-main">
-												<div class="item-name">成员某</div>
-											</div>
-										</div>
-									</li>
-								</ul>
+
 							</li>
 						</ul>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="dropdown aBoard" id="project-dropdown" data-something="project" style="display: none;">
-			<div class="dropdown-container">
-				<div class="project-select-dropdown">
-					<div class="member-menu member-menu-component member-menu-body project-select-dropdown">
+
+			<div class="dropdown aBoard" id="member-dropdown" data-something="member" style="display: none;">
+				<div class="dropdown-container member-menu member-menu-component">
+					<div class="member-menu-component member-menu-body">
 						<div class="search-input-wrap">
 							<div class="search-wrap">
 								<input class="search-input" placeholder="搜索" />
@@ -501,111 +490,16 @@
 						<div class="member-section">
 							<ul class="member-list">
 								<li class="select-group">
-									<div class="option-group-label">项目分组</div>
+									<div class="option-group-label">项目组1</div>
 									<ul>
 										<li class="member-list-item">
 											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
 											<div class="item-content-wrap">
 												<div class="item-main">
-													<div class="item-name">项目</div>
+													<div class="item-name">成员某</div>
 												</div>
 											</div>
 										</li>
-										<li class="member-list-item">
-											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
-											<div class="item-content-wrap">
-												<div class="item-main">
-													<div class="item-name">项目</div>
-												</div>
-											</div>
-										</li>
-										<li class="member-list-item">
-											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
-											<div class="item-content-wrap">
-												<div class="item-main">
-													<div class="item-name">项目</div>
-												</div>
-											</div>
-										</li>
-										<li class="member-list-item">
-											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
-											<div class="item-content-wrap">
-												<div class="item-main">
-													<div class="item-name">项目</div>
-												</div>
-											</div>
-										</li>
-										<li class="member-list-item">
-											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
-											<div class="item-content-wrap">
-												<div class="item-main">
-													<div class="item-name">项目</div>
-												</div>
-											</div>
-										</li>
-										<li class="member-list-item">
-											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
-											<div class="item-content-wrap">
-												<div class="item-main">
-													<div class="item-name">项目</div>
-												</div>
-											</div>
-										</li>
-										
-									</ul>
-								</li>
-								<li class="select-group">
-									<div class="option-group-label">项目分组</div>
-									<ul>
-										<li class="member-list-item">
-											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
-											<div class="item-content-wrap">
-												<div class="item-main">
-													<div class="item-name">项目</div>
-												</div>
-											</div>
-										</li>
-										<li class="member-list-item">
-											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
-											<div class="item-content-wrap">
-												<div class="item-main">
-													<div class="item-name">项目</div>
-												</div>
-											</div>
-										</li>
-										<li class="member-list-item">
-											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
-											<div class="item-content-wrap">
-												<div class="item-main">
-													<div class="item-name">项目</div>
-												</div>
-											</div>
-										</li>
-										<li class="member-list-item">
-											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
-											<div class="item-content-wrap">
-												<div class="item-main">
-													<div class="item-name">项目</div>
-												</div>
-											</div>
-										</li>
-										<li class="member-list-item">
-											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
-											<div class="item-content-wrap">
-												<div class="item-main">
-													<div class="item-name">项目</div>
-												</div>
-											</div>
-										</li>
-										<li class="member-list-item">
-											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
-											<div class="item-content-wrap">
-												<div class="item-main">
-													<div class="item-name">项目</div>
-												</div>
-											</div>
-										</li>
-										
 									</ul>
 								</li>
 							</ul>
@@ -613,34 +507,290 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="dropdown aBoard" id="member-dropdown" data-something="involver" style="display: none;">
-			<div class="dropdown-container member-menu member-menu-component">
-				<div class="member-menu-component member-menu-body">
-					<div class="search-input-wrap">
-						<div class="search-wrap">
-							<input class="search-input" placeholder="搜索" />
-						</div>
-					</div>
-					<div class="member-section">
-						<ul class="member-list">
-							<li class="select-group">
-								<div class="option-group-label">项目组1</div>
-								<ul>
-									<li class="member-list-item">
-										<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
-										<div class="item-content-wrap">
-											<div class="item-main">
-												<div class="item-name">成员某</div>
-											</div>
-										</div>
+			<div class="dropdown aBoard" id="project-dropdown" data-something="project" style="display: none;">
+				<div class="dropdown-container">
+					<div class="project-select-dropdown">
+						<div class="member-menu member-menu-component member-menu-body project-select-dropdown">
+							<div class="search-input-wrap">
+								<div class="search-wrap">
+									<input class="search-input" placeholder="搜索" />
+								</div>
+							</div>
+							<div class="member-section">
+								<ul class="member-list">
+									<li class="select-group">
+										<div class="option-group-label">项目分组</div>
+										<ul>
+
+											<li class="member-list-item">
+												<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
+												<div class="item-content-wrap">
+													<div class="item-main">
+														<div class="item-name">项目</div>
+													</div>
+												</div>
+											</li>
+
+										</ul>
+									</li>
+									<li class="select-group">
+										<div class="option-group-label">项目分组</div>
+										<ul>
+											<li class="member-list-item">
+												<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
+												<div class="item-content-wrap">
+													<div class="item-main">
+														<div class="item-name">项目</div>
+													</div>
+												</div>
+											</li>
+
+										</ul>
 									</li>
 								</ul>
-							</li>
-						</ul>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
+			<div class="dropdown aBoard" id="involver-dropdown" data-something="involver" style="display: none;">
+				<div class="dropdown-container member-menu member-menu-component">
+					<div class="member-menu-component member-menu-body">
+						<div class="search-input-wrap">
+							<div class="search-wrap">
+								<input class="search-input" placeholder="搜索" />
+							</div>
+						</div>
+						<div class="member-section">
+							<ul class="member-list">
+								<li class="select-group">
+									<div class="option-group-label">项目组1</div>
+									<ul>
+										<li class="member-list-item">
+											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
+											<div class="item-content-wrap">
+												<div class="item-main">
+													<div class="item-name">成员某</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--
+			<div class="modal fade in" style="">
+				<div class="modal-board fade in"></div>
+				<div class="object-modal-view">
+					<div class="modal-view">
+						<div class="modal-body">
+							<div class="modal-container">
+								<div class="content">
+									<div class="board-head">
+										<div class="board-head-wrap">
+											<div class="board-type">
+												<div class="board-type-icon"></div>
+												<span class="board-type-name">任务</span>
+											</div>
+										</div>
+										<div class="head-detail">
+											<div class="head-detail-wrap">
+												<div class="closeBoardBtn"><svg t="1600140476845" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+													 p-id="2714" width="16" height="16">
+														<path d="M574.55 522.35L904.4 192.5c16.65-16.65 16.65-44.1 0-60.75l-1.8-1.8c-16.65-16.65-44.1-16.65-60.75 0L512 460.25l-329.85-330.3c-16.65-16.65-44.1-16.65-60.75 0l-1.8 1.8c-17.1 16.65-17.1 44.1 0 60.75l329.85 329.85L119.6 852.2c-16.65 16.65-16.65 44.1 0 60.75l1.8 1.8c16.65 16.65 44.1 16.65 60.75 0L512 584.9l329.85 329.85c16.65 16.65 44.1 16.65 60.75 0l1.8-1.8c16.65-16.65 16.65-44.1 0-60.75L574.55 522.35z"
+														 p-id="2715"></path>
+													</svg></div>
+											</div>
+										</div>
+									</div>
+									<div class="board-detail-body">
+										<div class="body-inner">
+											<div class="sub-board1">
+												<div class="sub-inner">
+													<div class="object-title">
+														<div class="object-title-wrap">
+															<div class="object-title-editor" placeholder="任务名" spellcheck="false" contenteditable="true" value=""></div>
+														</div>
+													</div>
+													<div class="object-detail-body">
+														<div class="basic-details-view">
+															<div class="object-detail">
+																<div class="object-detail-left">
+																	<span class="object-detail-icon"><svg t="1600149905129" class="icon" viewBox="0 0 1099 1024" version="1.1"
+																		 xmlns="http://www.w3.org/2000/svg" p-id="3476" width="20" height="20">
+																			<path d="M805.56 253c-28.7 0-52 23.3-52 52 0 9.6 2.6 18.6 7.1 26.2L613.16 538.7c-3.3-0.7-6.7-1-10.1-1-10.4 0-20.2 3.1-28.3 8.4l-103.1-66.3c0-0.4 0-0.9 0-1.3 0-28.7-23.3-52-52-52-28.7 0-52 23.3-52 52 0 8.1 1.8 15.8 5.2 22.7L270.46 657c-2.7-0.4-5.5-0.7-8.3-0.7-28.7 0-52 23.3-52 52 0 28.7 23.3 52 52 52s52-23.3 52-52c0-10.3-3-19.8-8.1-27.9l100-151.9c4.4 1.2 9 1.8 13.8 1.8 12.6 0 24.2-4.5 33.2-12l98.8 63.5c-0.4 2.5-0.6 5.1-0.6 7.7 0 28.7 23.3 52 52 52s52-23.3 52-52c0-9.6-2.6-18.6-7.1-26.2l147.6-207.5c3.3 0.7 6.7 1 10.1 1 28.7 0 52-23.3 52-52S834.26 253 805.56 253z"
+																			 p-id="3477"></path>
+																		</svg></span>
+																	<span class="object-detail-name">状态</span>
+																</div>
+																<div class="object-detail-right">
+
+																	<div style="position: relative;">
+																		<div class="status-button" data-status="todo">
+																			<span class="select-box"></span>
+																			<span class="status-name">待处理</span>
+																		</div>
+																	</div>
+
+																</div>
+															</div>
+															<div class="object-detail">
+																<div class="object-detail-left">
+																	<span class="object-detail-icon"><svg t="1600154731071" class="icon" viewBox="0 0 1024 1024" version="1.1"
+																		 xmlns="http://www.w3.org/2000/svg" p-id="4380" width="20" height="20">
+																			<path d="M724.8 314.2c2.8 1.6 5.5 3.2 8.2 5.1l8.2 5.6 0.1 9.8c0.4 28.5-3 52.6-10.4 71.1-6.9 17-17.1 29.7-30.7 37.3-9.3 33.1-20.2 63.8-35.6 89.6-17.8 29.7-41.2 52.5-74.4 64.8-14.8 5.4-52.7 8-89.1 7.4-35.2-0.5-70.5-4-84.5-10.5-30.1-13.9-51.3-37.2-67.4-66.3-13.8-24.8-23.6-53.7-32.1-84.2-14.1-7.4-24.7-20-31.8-37.1-7.8-18.7-11.4-43.2-10.9-72.2l0.1-9.9 8.2-5.5c2.1-1.4 4.2-2.7 6.3-3.9-9.2-114.1-5.7-156.3 36.6-204.5 82.6-67.7 272-65.3 355.7-3.9 57 53.8 61 114.1 43.5 207.3zM551.3 644.1l1.2 26.1-15.5 25.6 21.6 141.8L647 647.5l134.7-4.6c69.6 65.8 114.2 220.8 103.2 321.9H134.2c1.9-88.8 18.2-240.4 106.6-317.6l121.7 1.1 114 188 21.4-140.6-15.5-25.5 1.2-26.1c29.5-1.6 38.2-1.6 67.7 0zM652 273.7c-53.5 10.5-133.2 19.6-196.2-15.8-24.2-13.6-59.7 14.3-88.7 11.4-9 17.8-15.7 37.3-19.6 58l-3.2 17.1-17.2-1.7c-3.2-0.3-6.5 0.1-10 1.3-1.6 0.5-3.1 1.1-4.7 1.9 0.5 19 3.1 34.7 8 46.5 4.3 10.4 10.4 17.1 18.2 19.6l10.1 3.1 2.8 10.1c8.4 31.3 17.9 60.8 31.2 84.8 12.3 22.3 28.1 40 50 50.1 9.2 4.2 38.4 6.6 69 7.1 32.5 0.5 64.9-1.3 75.6-5.2 24.1-8.9 41.4-26.1 54.9-48.6 14.5-24.2 24.8-54.9 33.8-88.6l2.6-9.6 9.6-3.3c7.6-2.7 13.5-9.6 17.6-20 4.7-11.7 7.3-27.2 7.7-45.8-1.4-0.7-2.8-1.3-4.2-1.7-3.4-1.1-6.6-1.7-9.7-1.5l-16.8 1.1-3.1-16.5c-3.8-19.2-9.7-37.2-17.7-53.8z m0 0"
+																			 p-id="4381"></path>
+																		</svg></span>
+																	<span class="object-detail-name">执行者</span>
+																</div>
+																<div class="object-detail-right">
+																	<div class="task-executor">
+																		<div class="task-executor-content">
+																			<div class="task-executor circle">
+																				<div class="executor selector" id="memberselect">
+																					<div class="executor-name"><span class="mybutton" data-something="member">执行者</span></div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="object-detail">
+																<div class="object-detail-left">
+																	<span class="object-detail-icon"><svg t="1600154947406" class="icon" viewBox="0 0 1024 1024" version="1.1"
+																		 xmlns="http://www.w3.org/2000/svg" p-id="5262" width="20" height="20">
+																			<path d="M512.256 960.256C264.833024 960.256 64.257024 759.678976 64.257024 512.256 64.257024 264.833024 264.833024 64.256 512.256 64.256 759.678976 64.256 960.254976 264.833024 960.254976 512.256 960.254976 759.678976 759.678976 960.256 512.256 960.256ZM150.41024 495.025152 115.949568 495.025152C106.433536 495.025152 98.717696 502.739968 98.717696 512.256 98.717696 521.772032 106.433536 529.486848 115.949568 529.486848L150.41024 529.486848C159.927296 529.486848 167.641088 521.772032 167.641088 512.256 167.641088 502.739968 159.927296 495.025152 150.41024 495.025152ZM495.025152 908.563456C495.025152 918.079488 502.738944 925.794304 512.256 925.794304 521.772032 925.794304 529.486848 918.079488 529.486848 908.563456L529.486848 874.10176C529.486848 864.585728 521.772032 856.870912 512.256 856.870912 502.738944 856.870912 495.025152 864.585728 495.025152 874.10176L495.025152 908.563456ZM529.486848 115.948544C529.486848 106.432512 521.772032 98.71872 512.256 98.71872 502.738944 98.71872 495.025152 106.432512 495.025152 115.948544L495.025152 150.41024C495.025152 159.926272 502.738944 167.641088 512.256 167.641088 521.772032 167.641088 529.486848 159.926272 529.486848 150.41024L529.486848 115.948544ZM529.486848 526.923776 529.486848 288.256C529.486848 278.739968 521.772032 271.026176 512.256 271.026176 502.738944 271.026176 495.025152 278.739968 495.025152 288.256L495.025152 522.059776 241.229824 775.384064C234.425344 782.175232 234.425344 793.187328 241.229824 799.978496 248.03328 806.769664 259.065856 806.769664 265.869312 799.978496L524.587008 541.741056C528.632832 537.701376 530.2528 532.171776 529.486848 526.923776ZM908.563456 495.025152 874.10176 495.025152C864.584704 495.025152 856.870912 502.739968 856.870912 512.256 856.870912 521.772032 864.584704 529.486848 874.10176 529.486848L908.563456 529.486848C918.079488 529.486848 925.79328 521.772032 925.79328 512.256 925.79328 502.739968 918.079488 495.025152 908.563456 495.025152Z"
+																			 p-id="5263"></path>
+																		</svg></span>
+																	<span class="object-detail-name">时间</span>
+																</div>
+																<div class="object-detail-right">
+																	<div class="task-date-wrap">
+																		<div class="task-date-start">
+																			<div class="date-wrap">
+																				<div class="date-text">开始时间</div> <input class="datetime-set" id="startDate" type="text">
+																			</div>
+																		</div>
+																		<div class="task-date-end">
+																			<div class="date-wrap">
+																				<div class="date-text">截止时间</div> <input class="datetime-set" id="endDate" type="text">
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="object-detail">
+																<div class="object-detail-left">
+																	<span class="object-detail-icon"><svg t="1600170801098" class="icon" viewBox="0 0 1024 1024" version="1.1"
+																		 xmlns="http://www.w3.org/2000/svg" p-id="4296" width="20" height="20">
+																			<path d="M196.608 348.16h206.336l65.024 120.832 62.464 75.776L660.992 348.16H890.88l69.632 198.656-30.72 106.496-39.936-1.024 10.752-90.624-26.112-68.608-5.12 158.208-32.768 299.52H783.36l-3.584-274.432h-30.208l-50.688 275.968h-59.392l18.432-301.568V501.76l-131.584 112.64-102.912-73.216-3.584 110.08-34.816 301.568H325.12v-275.968h-30.208L240.64 950.784H187.392l20.48-299.52-5.12-137.216-77.312 93.184v40.448h25.088v207.872H69.632v-207.872h25.088v-41.984l-17.92-7.68L196.608 348.16z m607.744-225.28c-47.104-28.672-108.544-13.312-137.216 33.792-28.672 47.104-13.312 108.544 33.792 137.216s108.544 13.312 137.216-33.792c28.672-47.104 13.312-108.544-33.792-137.216zM256 122.88c47.104-28.672 108.544-13.312 137.216 33.792 28.672 47.104 13.312 108.544-33.792 137.216S250.88 307.2 222.208 260.096C194.048 212.992 208.896 151.552 256 122.88z"
+																			 fill="#231815" p-id="4297"></path>
+																		</svg></span>
+																	<span class="object-detail-name">参与者</span>
+																</div>
+																<div class="object-detail-right">
+																	<div class="member-involve">
+																		<ul class="member-involve-list">
+																			<div>
+																				<button class="mybutton add-handler" data-something="involver">+</button>
+																			</div>
+																		</ul>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="project-info">
+															<div class="object-detail">
+																<div class="object-detail-left">
+																	<span class="object-detail-icon"><svg t="1600169470609" class="icon" viewBox="0 0 1024 1024" version="1.1"
+																		 xmlns="http://www.w3.org/2000/svg" p-id="2757" width="20" height="20">
+																			<path d="M896 896l-45.44-45.12A63.808 63.808 0 0 1 896 832a64 64 0 0 0 64-64V128a64 64 0 0 0-64-64H256a64 64 0 0 0-64 64v5.44c0 17.6-7.04 33.536-18.56 45.12L128 133.44V128A128 128 0 0 1 256 0h640a128 128 0 0 1 128 128v640a128 128 0 0 1-128 128zM64 256v640a64 64 0 0 0 64 64h640a64 64 0 0 0 64-64V256a64 64 0 0 0-64-64H128a64 64 0 0 0-64 64z m704-128a128 128 0 0 1 128 128v640a128 128 0 0 1-128 128H128A128 128 0 0 1 0 896V256a128 128 0 0 1 128-128h640z"
+																			 p-id="2758"></path>
+																			<path d="M160 256h384a32 32 0 0 1 0 64H160a32 32 0 0 1 0-64z m576 64a32 32 0 1 1 0-64 32 32 0 0 1 0 64zM64 384h768v64H64v-64z"
+																			 p-id="2759"></path>
+																		</svg></span>
+																	<span class="object-detail-name">项目</span>
+																</div>
+																<div class="object-detail-right">
+																	<div class="stage-selector-wrap">
+																		<div class="task-location-handler selector">
+																			
+																			<div class="task-location-text"><span class="mybutton" data-something="project">项目</span></div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="other-info">
+															<div class="other-info-wrap">
+																<div class="other-info-aside">
+																	<span class="object-detail-icon"><svg t="1600170506401" class="icon" viewBox="0 0 1024 1024" version="1.1"
+																		 xmlns="http://www.w3.org/2000/svg" p-id="3386" width="20" height="20">
+																			<path d="M863.418182 297.890909l-132.654546-132.654545 109.381819-109.381819 132.654545 132.654546-109.381818 109.381818z m-65.163637-132.654545l65.163637 65.163636 41.890909-41.890909-65.163636-65.163636-41.89091 41.890909z"
+																			 fill="#424752" p-id="3387"></path>
+																			<path d="M523.636364 505.018182l39.563636-172.218182 202.472727-202.472727 130.327273 132.654545-202.472727 202.472727-169.890909 39.563637z m158.254545-60.509091zM605.090909 358.4l-20.945454 83.781818 86.10909-20.945454 160.581819-158.254546-65.163637-67.490909-160.581818 162.909091z"
+																			 fill="#424752" p-id="3388"></path>
+																			<path d="M930.909091 930.909091H93.090909V93.090909h581.818182v46.545455H139.636364v744.727272h744.727272V349.090909h46.545455z"
+																			 fill="#424752" p-id="3389"></path>
+																			<path d="M186.181818 279.272727h302.545455v46.545455H186.181818zM186.181818 418.909091h302.545455v46.545454H186.181818zM186.181818 558.545455h651.636364v46.545454H186.181818z"
+																			 fill="#424752" p-id="3390"></path>
+																			<path d="M186.181818 698.181818h651.636364v46.545455H186.181818z" fill="#424752" p-id="3391"></path>
+																		</svg></span>
+																	<span class="object-detail-name">详情</span>
+																</div>
+																<div class="more-info">
+																	<div class="add-info-before">
+																		<div class="add-info-handler">暂时未空</div>
+																	</div>
+																	<div class="add-info-now">
+																		<moreinfo></moreinfo>
+																	</div>
+																	<div class="add-info-after">
+																		<div class="add-info-text"></div>
+																	</div>
+																</div>
+																
+															</div>
+
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="sub-board2">
+												<div class="sub-inner">
+													<div class="activity-board">
+														<div class="header">
+															<span class="title-name">动态</span>
+														</div>
+														<div class="activity-timeline">
+															<div class="activity-timeline-wrap">
+																<ul class="timeline-list">
+																	<li class="timeline-list-item">
+																		<div class="activity-time">今天5:00</div>
+																		<div class="activity-content">xxx更新了时间</div>
+																	</li>
+
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			-->
+		</div>
 		</div>
 		<script type="text/javascript" src="js/teamgo.js"></script>
 		<script>
@@ -672,38 +822,7 @@
 				}
 			}
 
-			$(document).ready(function() {
-				var tasktextarea = document.getElementById("task-editor");
-				tasktextarea.onkeyup = function() {
-					var str = tasktextarea.innerText;
 
-					var taskbtn = document.getElementById("task-btn");
-					if (str.length > 0 && !str.match(/^[ ]*$/)) {
-						taskbtn.removeAttribute("disabled");
-					} else {
-						taskbtn.setAttribute("disabled", "disabled");
-					}
-				}
-				
-				function stopBubble(e){  
-						    if(e && e.stopPropagation){
-						      e.stopPropagation();  //w3c
-							}else{
-						      window.event.cancelBubble=true; //IE
-						    }
-						}
-			$('.mybutton').click(function(event){
-			    $('div[data-something=' + $(this).data('something') + ']').toggle();
-				console.log($(this).data('somthing'));
-				stopBubble(event);
-				$(document).bind("click",function(e){ 
-				var target = $(e.target); 
-				if(target.closest(".aBoard").length == 0){ 
-				$(".aBoard").hide(); 
-				} 
-				}) 
-			});
-			});
 			/*
 			function e(obj){
 				return document.getElementById(obj);
@@ -723,17 +842,8 @@
 			    stopBubble(event); 
 			}
 			*/
-		   
-		
 		</script>
 
 		<div style="display: none;" id="infospace"></div>
 	</body>
-	<script>
-		$(".card-grid").on("click", ".card-container", function() {
-			$(".card-grid").html("");
-			var hello = $(this).text();
-			$(".card-grid").html(hello);
-		});
-	</script>
 </html>

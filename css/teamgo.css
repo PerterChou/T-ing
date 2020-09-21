@@ -918,7 +918,7 @@ li.Leave *,li.Leave{
 	bottom: 0;
 	left: 0;
 	outline: 0;
-	display: none;
+	display: flex;
 	flex-direction: column;
 }
 .modal-board{
@@ -1071,6 +1071,7 @@ li.Leave *,li.Leave{
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	margin: 0 8px;
+	position: relative;
 }
 .basic-attrs-view>.task-date-range{
 	display: flex;
@@ -1143,6 +1144,9 @@ li.Leave *,li.Leave{
 	flex-direction: row;
 	align-items: center;
 }
+.task-location-handler *{
+	cursor: url(../i/link.ico),auto;
+}
 .task-location-logo{
 	flex: none;
 	width: 24px;
@@ -1157,6 +1161,7 @@ li.Leave *,li.Leave{
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	position: relative;
 }
 .task-creator-view
 .creator-involve{
@@ -1178,6 +1183,54 @@ li.Leave *,li.Leave{
 	flex-wrap: wrap;
 	padding-bottom: 2px;
 	margin: 0 -4px;
+}
+.member-involve-list-item{
+	display: inline-flex;
+	position: relative;
+	cursor: url(../i/link.ico),auto;
+	margin: 8px 4px 0;
+	width: 48px;
+	transition: border-color 0.3s ease;
+	border-radius: 12px;
+	
+}
+.member-involve-list-item:hover{
+}
+.member-involve-list-item-name{
+	display: inline-block;
+	height: 24px;
+	text-overflow: ellipsis;
+	text-align: center;
+	font-size: 12px;
+	margin: 4px 2px 0;
+	width: 48px;
+	overflow: hidden;
+	box-sizing: border-box;
+	border-radius: 12px;
+}
+.member-involve-list-item-name:hover{
+	border: 1px solid #8c8c8c;
+	
+}
+.remove-handler{
+	position: absolute;
+	right: -4px;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: aliceblue;
+	vertical-align:center;
+	justify-content: center;
+	text-align: center;
+	opacity: 0;
+	transition: opacity,background-color 0.3s ease;
+
+}
+.remove-handler:hover{
+	opacity: 1;
+}
+.remove-handler *{
+		cursor: url(../i/link.ico),auto;
 }
 .add-handler{
 	flex: none;
@@ -1313,6 +1366,7 @@ li.Leave *,li.Leave{
 	display: flex;
 	flex: 1;
 	min-height: 0%;
+	flex-direction: column;
 }
 .member-menu-component .member-list{
 	width: 100%;
@@ -1372,4 +1426,24 @@ li.Leave *,li.Leave{
 }
 .project-select-dropdown *{
 	box-sizing: border-box;
+}
+.remove-btn{
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	position: absolute;
+	right: -6px;
+	top: -6px;
+	z-index: 1;
+	cursor: url(../i/link.ico),auto;
+	opacity: 0;
+	transition: opacity 0.2s ease,background-color 0.2s ease;
+	display: inline-block;
+	border-radius: 50%;
+}
+.remove-btn:hover{
+	opacity: 1;
+	color: white;
+	background-color: gray;
 }

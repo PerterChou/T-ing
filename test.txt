@@ -5,3 +5,95 @@
  <div class=\"result-list-item\"><div class=\"result-list-item-title\"><div class=\"item-title-img\"><span class=\"title-img\"></span></div><div class=\"item-title-name\">Project 1</div></div></div>
  
  document.write("<!DOCTYPE html><html><head><meta charset=\"utf-8\"><title></title><link rel=\"stylesheet\" type=\"text/css\" href=\"css/teamgo.css\"/></head><body><div class=\"card-container\"><div class=\"outer\"><div class=\"container\"><div class=\"container-content\"><div class=\"container-content-header\"></div><div class=\"container-content-footer\"><div class=\"project-name\">新建项目</div></div></div></div></div></div>;</body></html>") 
+ 
+ <div class="modal fade in" data-modal="modal2">
+ 	<div class="modal-board fade in"></div>
+ 	<div class="task-creator-view creator-view modal-dialog">
+ 		<header class="creator-header">
+ 			<h4 class="creator-title">新建任务</h4>
+ 			<div class="closeBoardBtn" data-modal="modal2"><svg t="1598885336572" class="icon" viewBox="0 0 1024 1024"
+ 				 version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2684" width="20" height="20">
+ 					<path d="M566.97558594 521.09667969L856.8828125 231.18945312c14.63378906-14.63378906 14.63378906-38.75976563 0-53.39355468l-1.58203125-1.58203125c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469 0L512 466.51660156 222.09277344 176.21386719c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469 0l-1.58203125 1.58203125c-15.02929688 14.63378906-15.02929688 38.75976563 0 53.39355469l289.90722656 289.90722656L167.1171875 811.00390625c-14.63378906 14.63378906-14.63378906 38.75976563 0 53.39355469l1.58203125 1.58203125c14.63378906 14.63378906 38.75976563 14.63378906 53.39355469 0L512 576.07226563 801.90722656 865.97949219c14.63378906 14.63378906 38.75976563 14.63378906 53.39355469 0l1.58203125-1.58203125c14.63378906-14.63378906 14.63378906-38.75976563 0-53.39355469L566.97558594 521.09667969z"
+ 					 fill="#363F4D" p-id="2685"></path>
+ 				</svg></div>
+ 		</header>
+ 		<section class="creator-body">
+ 			<div class="creator-block task-creator-input">
+ 				<div class="editor" contenteditable="true" spellcheck="false" placeholder="输入任务标题" id="task-editor"></div>
+ 			</div>
+ 			<div class="basic-attrs-wrap">
+ 				<div class="basic-attrs-view">
+ 					<div class="task-executor">
+ 						<div class="task-executor-content">
+ 							<div class="task-executor circle">
+ 								<div class="executor selector" id='memberselect' >
+ 									<span class="executor-icon" style="background-image: url(img/executor.png);"></span>
+ 									<div class="executor-name"><span class="mybutton" data-something="member">执行者</span></div>
+ 								</div>
+ 							</div>
+ 						</div>
+ 					</div>
+ 					<div class="task-date-range">
+ 						<span class="task-date-range-icon icon"><svg t="1598945732379" class="icon" viewBox="0 0 1024 1024" version="1.1"
+ 							 xmlns="http://www.w3.org/2000/svg" p-id="3418" width="200" height="200">
+ 								<path d="M896 345V233a8 8 0 0 0-8-8H738v45c0 17.673-14.327 32-32 32-17.673 0-32-14.327-32-32v-45H350v45c0 17.673-14.327 32-32 32-17.673 0-32-14.327-32-32v-45H136a8 8 0 0 0-8 8v112h768z m0 64H128v479a8 8 0 0 0 8 8h752a8 8 0 0 0 8-8V409zM738 161h190c17.673 0 32 14.327 32 32v735c0 17.673-14.327 32-32 32H96c-17.673 0-32-14.327-32-32V193c0-17.673 14.327-32 32-32h190V96c0-17.673 14.327-32 32-32 17.673 0 32 14.327 32 32v65h324V96c0-17.673 14.327-32 32-32 17.673 0 32 14.327 32 32v65zM289 473h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m194-256h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m194-256h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z"
+ 								 p-id="3419"></path>
+ 							</svg></span>
+ 						<div class="task-date-wrap">
+ 							<div class="task-date-start">
+ 								<div class="date-wrap">
+ 									<div class="date-text">开始时间</div>
+ 									<input class="datetime-set" id="startDate" type="text" />
+ 
+ 								</div>
+ 							</div>
+ 
+ 							<div class="task-date-end">
+ 								<div class="date-wrap">
+ 									<div class="date-text">截止时间</div>
+ 									<input class="datetime-set" id="endDate" type="text" />
+ 								</div>
+ 							</div>
+ 						</div>
+ 					</div>
+ 				</div>
+ 			</div>
+ 			<div class="task-location-wrap">
+ 				<div class="stage-selector-wrap">
+ 					<div class="task-location-handler selector">
+ 						<div class="task-location-logo" style="background-image: url(img/nullproject.png);"></div>
+ 						<div class="task-location-text"><span class="mybutton" data-something="project">项目</span></div>
+ 					</div>
+ 				</div>
+ 			</div>
+ 			<div class="creator-involve">
+ 				<div class="member-involve">
+ 					<div class="member-involve-header">
+ 						<span>参与者:</span>
+ 						<span style=""></span>
+ 					</div>
+ 					<ul class="member-involve-list">
+ 						<div><button class="mybutton add-handler" data-something="involver">+</button></div>
+ 					</ul>
+ 				</div>
+ 			</div>
+ 		</section>
+ 		<footer class="creator-footer">
+ 			<div class="btn-wrap">
+ 				<button class="btn" onclick="test()" disabled="disabled" id="task-btn">创建</button>
+ 			</div>
+ 		</footer>
+ 	</div>
+ </div>
+ 
+ 
+
+ "<ul class=\"member-list\"><li class=\"select-group\"></li></ul>"
+ 
+ "<li class=\"member-list-item\"><span class=\"avator item-img-avator\" style=\"background-image:url(img/executor.png) ;\"></span><div class=\"item-content-wrap\">"<div class=\"item-main\"><div class=\"item-name\">成员某</div></div></div></li>"
+ 
+ "<li class=\"project-item  \"><div class=\"item-wrap\"><div class=\"project-img\"></div><span class=\"project-title selected\">乡村发展技术即资金支持项目</span></div></li>"
+ 
+ "<div class=\"status-dropdown open\"><div class=\"status-dropdown-container\"><ul class=\"status-select-view\"><li class=\"status-item  selected\"><div class=\"item-wrap\"><span class=\"status-title \">待处理</span></div></li></ul></div></div>"
+ 
+ "<div class=\"task-card\"><div class=\"task-card-body\"><div class=\"select-box\"></div><div class=\"task-content\"><span class=\"task-content-text\">喝茶</span></div></div></div>"

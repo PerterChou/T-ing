@@ -30,8 +30,10 @@
   <span id="close-button" class="dot" title="关闭">X</span>
     <p id="image_logo"><img src="img/logo.gif"></p>
  
-    <form method="post" action="registerServlet">
- 
+    <form method="post" action="/registerServlet">
+
+        <p><label class="label_input">昵称</label><input type="text" id="nickname" class="text_field" name="nickname"></p>
+        <p class="errInfo"></p>
         <p><label class="label_input">用户名</label><input type="text" id="username" class="text_field" name="username"></p>
         <p class="errInfo"></p>
 		<p><label class="label_input">密码</label><input type="password" id="password" class="text_field" name="password"></p>

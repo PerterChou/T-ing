@@ -1,0 +1,104 @@
+.schedule-board {
+	position: relative;
+	overflow-y: auto;
+	overflow-x: hidden;
+	flex: 1;
+	margin-top: 20px;
+	width: 80vw;
+	margin: 0 auto;
+}
+.schedule-box {
+	right: -17px;
+	position: relative;
+	width: 100%;
+	margin: 20px auto 0 auto;
+	display: flex;
+	flex-direction: row;
+}
+
+.schedule-time {
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+	overflow-y: auto;
+	width: 10%;
+	
+	max-height: 60vh;
+	text-align: center;
+	margin-top: 5vh;
+	border-radius: 4px;
+}
+
+.schedule-time li {
+	height: 40px;
+	line-height: 40px;
+	background: #FFF;
+	margin-bottom: 1px;
+	color: #828282;
+	border-radius: 4px;
+	transition: background-color 0.2s; 
+}
+
+.schedule-time li * {
+	cursor: url(../i/link.ico), auto;
+}
+
+.schedule-time li.current {
+	background: #109dff;
+	color: #FFF;
+}
+.schedule-list {
+	overflow: hidden;
+	width: 100%;
+	margin: 10px 0 20px 0;
+	background:url('../img/dian3.png') 139px 0 repeat-y;
+}
+.schedule-list-item{
+	display: flex;
+	flex-direction: column;
+}
+.schedule-list h3 {
+	margin: 0 0 10px 132px;
+	font-size: 24px;
+	font-family: Georgia;
+	color: #0066ff;
+	padding-left: 25px;
+	height: 38px;
+	line-height: 30px;
+	font-style: italic;
+}
+
+.schedule-list li {
+	background:url('../img/jian.png') 136px -80px no-repeat;
+}
+
+.schedule-list li span {
+	width: 127px;
+	text-align: right;
+	display: block;
+	float: left;
+	margin-top: 10px;
+}
+.schedule-list li p {
+	width: 680px;
+	margin-left: 24px;
+	display: inline-block;
+	padding-left: 10px;
+	line-height: 25px;
+	background:url('../img/corder.png') -15px -10px  no-repeat;
+}
+.schedule-list li p *{
+	cursor: url(../i/link.ico),auto;
+}
+.schedule-list li p span {
+	width: 650px;
+	text-align: left;
+	padding: 10px 15px;
+	background: #FFF;
+	margin: 0;
+	box-shadow: 1px 4px 4px rgba(0,0,0,0.5);
+	transition: background-color 0.3s;
+}
+.schedule-list li p span:hover{
+	background-color: #e7e9f9;
+}

@@ -1,1 +1,2 @@
-[{"id":1,"projectName":"project1"},{"id":2,"projectName":"project2"},{"id":3,"projectName":"project3"},{"id":4,"projectName":"project4"}]
+
+[{"groupName":"分组1","project":[{"projectName":"公司团建"},{"projectName":"乡村支教"},{"projectName":"project3"}]},{"groupName":"分组2","project":[{"projectName":"project4"},{"projectName":"project5"},{"projectName":"project6"}]}]
